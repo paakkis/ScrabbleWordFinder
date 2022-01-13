@@ -1,4 +1,4 @@
-A program to find all possible words by players own letters in the game Scrabble!
+A program to find all possible words given the player's own letters in the game Scrabble!
 
 Highly based on arilamsteins scrabblecheat.py (https://github.com/arilamstein/scrabble-cheat/blob/master/scrabblecheat.py)
 
