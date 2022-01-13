@@ -1,17 +1,22 @@
+def kielletyt_sanat():
+    with open("kielletyt.txt", encoding="utf-8") as kielletyt_sanat:
+        return [kielletty_sana
+                for kielletty_sana in set(kielletyt_sanat.read().split())]
+
 def lataa_sanalista(max_pituus=15):
-    with open("sanalista.txt") as sanalista:
+    with open("sanalista.txt", encoding="utf-8") as sanalista:
         return [sana
                 for sana in set(sanalista.read().split())
-                if (len(sana) > 1) and (len(sana) <= max_pituus)]
+                if (len(sana) > 1) and (len(sana) <= max_pituus) and sana not in kielletyt_sanat()]
 
 def sanapisteet(sana):
-    kirjain_pisteet = {'a': 1, 'b': 4, 'c': 4, 'd': 2,
-                     'e': 1, 'f': 4, 'g': 3, 'h': 3,
-                     'i': 1, 'j': 10, 'k': 5, 'l': 2,
-                     'm': 4, 'n': 2, 'o': 1, 'p': 4,
-                     'q': 10, 'r': 1, 's': 1, 't': 1,
-                     'u': 2, 'v': 5, 'w': 4, 'x': 8,
-                     'y': 3, 'z': 10}
+    kirjain_pisteet = {'a': 1, 'b': 8, 'c': 10, 'd': 7,
+                     'e': 1, 'f': 8, 'g': 8, 'h': 4,
+                     'i': 1, 'j': 4, 'k': 2, 'l': 2,
+                     'm': 3, 'n': 1, 'o': 2, 'p': 4,
+                     'q': 10, 'r': 4, 's': 1, 't': 1,
+                     'u': 4, 'v': 4, 'w': 4, 'x': 8,
+                     'y': 4, 'z': 10, 'ä': 2, 'ö': 7}
 
     return sum([kirjain_pisteet[kirjain] for kirjain in sana])
 
